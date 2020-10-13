@@ -2,6 +2,7 @@
 
 ## Integrantes del equipo:
 _García Santamaría José Luis 316174646_
+
 _Reyes Martínez Antonio 316184931_
 
 ### Lenguaje utilizado
