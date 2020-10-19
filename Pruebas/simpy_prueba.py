@@ -7,6 +7,7 @@ class Carro(object):
 		self.accion = env.process(self.run())
 		self.estacion_carga = estacion_carga
 		self.accion = env.process(self.run())
+		
 	def run(self):
 		while True:
 			# Estacionada y carga
