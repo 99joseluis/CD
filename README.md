@@ -7,3 +7,14 @@ _Reyes Martínez Antonio 316184931_
 
 ### Lenguaje utilizado
 _Python3 orientado a objetos_
+_junto con simpy_
+
+
+### Forma de correr
+_Posicionarse con en la carpeta src en la terminal y ejecutar el siguiente código:_
+
+_python3 -i "Nombre Programa.py"_
+
+_Una vez adentro del interprete de python, ejecutar el código siguiente :_
+
+_envi.run(until="Numero de repeticiones")_
