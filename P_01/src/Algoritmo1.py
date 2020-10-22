@@ -1,6 +1,6 @@
 import simpy
 from Nodo import * 
-from Canales.CanalNodos import * 
+from Canales.Canal1 import * 
 
 class Algoritmo1(Nodo):
     def __init__(self, id_nodo, vecinos, canal_entrada,
@@ -13,11 +13,6 @@ class Algoritmo1(Nodo):
         self.conocidos = []
         self.seen_msg = False
 
-    def __repr__(self):
-        ''' Funcion para imprimir el nodo'''
-        return "Nodo %d "%(self.id_nodo)
-
-
     def eliminaRep(self, conocidos):
         '''Elimina los las sublistas repetidas en self.conocidos'''
         nuevalista = []
@@ -29,18 +24,14 @@ class Algoritmo1(Nodo):
     def algo1(self,nodo, envi):
         '''Implementa el algoritmo 1'''
         for j in self.vecinos:
-            print("Primer for vecino %d" %(j))
-            self.canal_salida.envia(self.vecinos, self.vecinos)
+            self.canal_salida.envia(self.vecinos)
             yield envi.timeout(1)
         
         while True:
-            print("While")
-            print("Grafica %d" %(nodo))
             msj = yield self.canal_entrada.get()
             self.seen_msg = True
-            #print('%d recibío mensaje de %d en el %d' %(self.id_nodo, msj, envi.now))
+            print('%d recibío el mensaje %s en el %d' %(self.id_nodo, msj, envi.now))
             yield envi.timeout(1)
-            print(msj)
             self.conocidos.append(msj)
             self.eliminaRep(self.conocidos)
     
@@ -49,7 +40,7 @@ class Algoritmo1(Nodo):
 if __name__ == "__main__":
      # Inicializamos ambiente y canal
     envi = simpy.Environment()
-    envi_algo = CanalNodos(envi)
+    envi_algo = Canal1(envi)
 
     # Creamos los nodos
     grafica = []

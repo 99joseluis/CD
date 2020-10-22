@@ -2,7 +2,7 @@ import simpy
 from Canales.Canal import Canal
 
 
-class CanalNodos(Canal):
+class Canal6(Canal):
     '''
     clase que implementa la interfaz que modela el comportamiento que cualquier canal debe tomar.
     '''
@@ -14,13 +14,14 @@ class CanalNodos(Canal):
 
     def envia(self, mensaje, vecino):
         '''
-        Envia un mensaje a los canales de salida del vecino.
+        Envia un mensaje a los canales de salida de los vecinos.
         '''
         if not self.canales:
             raise RuntimeError('No hay canales de salida.')
         eventos = list()
         for i in range(len(self.canales)):
-            eventos.append(self.canales[i].put(mensaje))
+            if i == vecino:
+                eventos.append(self.canales[i].put(mensaje))
         return self.env.all_of(eventos)
 
     def crea_canal_de_entrada(self):
