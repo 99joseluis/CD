@@ -10,7 +10,7 @@ _Python3 orientado a objetos_
 _junto con simpy_
 
 
-#### Forma de correr
+### Forma de correr
 _Posicionarse con en la carpeta src en la terminal y ejecutar el siguiente código:_
 
 _python3 -i "Nombre Programa.py"_
